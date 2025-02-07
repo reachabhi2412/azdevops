@@ -13,10 +13,11 @@ This repository contains Docker configurations for two applications:
 2. [Node.js Application](#nodejs-application)
 
 **Steps to Run Flask App**
-
-- docker build -t my-flask-app
+- *Navigate to [pydocker](https://github.com/reachabhi2412/azdevops/tree/main/pydocker) folder and run below commands*
+- docker build -t my-flask-app .
 - docker run -d -p 5002:5000 myflask-app
 
 **Steps to Run Node App**
+- *Navigate to [nodedocker](https://github.com/reachabhi2412/azdevops/tree/main/pydocker) folder and run below commands*
 - docker build -t my-node-app .
 - docker run -p 3000:3000 my-node-app
