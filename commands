@@ -1,0 +1,33 @@
+
+------------------------------------------
+Networking
+
+---Bridge---
+docker network create my_bridge
+docker network ls
+
+docker run -dit --name container1 --network my_bridge busybox sh
+docker run -dit --name container2 --network my_bridge busybox sh
+
+docker exec -it container1 sh
+ping container2
+
+docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' test-container
+
+docker network inspect my_bridge
+
+docker rm -f container1 container2 webserver
+docker network rm my_bridge
+
+Check connectivity with host machine - docker exec -it host-container ping <HOST IP> 
+
+---Host---
+No isolation
+docker run -dit --name host-container --network host busybox sh
+
+docker inspect -f '{{.NetworkSettings.IPAddress}}' host-container
+docker inspect host-container | grep '"NetworkMode"'
+output - "NetworkMode": "host"
+
+Check connectivity with host machine - docker exec -it host-container ping <HOST IP> 
+--------
