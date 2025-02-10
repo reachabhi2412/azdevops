@@ -90,6 +90,12 @@ echo "First fruit: ${fruits[0]}"  # Apple
 echo "All fruits: ${fruits[@]}"   # Apple Banana Cherry
 echo "Second fruit: ${fruits[1]}"  # Banana
 
+# Add Mango to the array
+fruits+=("Mango")  
+echo "Updated Fruits: ${fruits[@]}"  # Apple Banana Cherry Mango
+
+
+
 -----------------------------------------
 #Maps or assiciative arrays
 
