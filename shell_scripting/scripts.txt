@@ -55,5 +55,54 @@ case $file in
         echo "Unknown file type."
         ;;
 esac
+-----------------------------------------
+
+#Switch case usage example
+
+echo "Enter command: (start/stop/restart/status)"
+read action
+
+case $action in
+    start)
+        docker start my_container
+        ;;
+    stop)
+        docker stop my_container
+        ;;
+    restart)
+        docker restart my_container
+        ;;
+    status)
+        docker ps -f "name=my_container"
+        ;;
+    *)
+        echo "Usage: start | stop | restart | status"
+        ;;
+esac
+------------------------------------------
+
+#Arrays
+
+#!/bin/bash
+fruits=("Apple" "Banana" "Cherry")
+
+echo "First fruit: ${fruits[0]}"  # Apple
+echo "All fruits: ${fruits[@]}"   # Apple Banana Cherry
+echo "Second fruit: ${fruits[1]}"  # Banana
+
+-----------------------------------------
+#Maps or assiciative arrays
+
+#!/bin/bash
+declare -A user #declares user array as an associative(A)
+user[name]="Alice"
+user[age]=25
+user[city]="New York"
+
+echo "Name: ${user[name]}"
+echo "Age: ${user[age]}"
+
+
+
 
 
