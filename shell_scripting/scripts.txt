@@ -96,6 +96,9 @@ echo "Updated Fruits: ${fruits[@]}"  # Apple Banana Cherry Mango
 
 #Find array length
 echo "Number of fruits: ${#fruits[@]}"  # 3
+#remove item
+unset fruits[1]  
+echo "After removal: ${fruits[@]}"  # Apple Cherry Mango
 
 
 -----------------------------------------
