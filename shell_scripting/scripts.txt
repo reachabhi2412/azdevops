@@ -5,6 +5,7 @@ else
 	echo "Bye"
 fi
 
+--------------------------------------
 
 #Checks if file is present
 
@@ -14,11 +15,15 @@ else
     echo "The file does not exist"
 fi
 
+--------------------------------------
+
 #Prints the docker image names
 images=$(docker images | awk '{print $1}')
 for i in $images;do
         echo "IMAGE NAME - $i"
 done
+
+--------------------------------------
 
 #Check if user input number is greater than 100
 echo "Enter a number:"
@@ -28,3 +33,7 @@ if [ $num -gt 100 ]; then
 else
     echo "Number is 10 or less"
 fi
+
+--------------------------------------
+
+
