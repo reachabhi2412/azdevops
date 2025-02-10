@@ -36,4 +36,24 @@ fi
 
 --------------------------------------
 
+#Check input filename extension
+
+echo "Enter filename:"
+read file
+
+case $file in
+    *.txt)
+        echo "This is a text file."
+        ;;
+    *.jpg | *.png)
+        echo "This is an image file."
+        ;;
+    *.sh)
+        echo "This is a shell script."
+        ;;
+    *)
+        echo "Unknown file type."
+        ;;
+esac
+
 
