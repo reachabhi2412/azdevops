@@ -94,6 +94,8 @@ echo "Second fruit: ${fruits[1]}"  # Banana
 fruits+=("Mango")  
 echo "Updated Fruits: ${fruits[@]}"  # Apple Banana Cherry Mango
 
+#Find array length
+echo "Number of fruits: ${#fruits[@]}"  # 3
 
 
 -----------------------------------------
