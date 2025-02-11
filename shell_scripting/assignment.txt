@@ -1,0 +1,5 @@
+Write a script that takes two numbers as input and prints their sum.
+Write a script that checks if a file exists and prints a message based on the result.
+Create a script that prints numbers from 1 to 10 using a loop.
+Create a script that takes user input and performs an action based on the input.
+Write a script that analyzes a log file and extracts lines containing a specific keyword.
