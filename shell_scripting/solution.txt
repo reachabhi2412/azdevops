@@ -1,0 +1,260 @@
+Write a script that takes two numbers as input and prints their sum.
+
+# Prompt user for two numbers
+echo "Enter first number:"
+read num1
+
+echo "Enter second number:"
+read num2
+
+# Calculate sum
+sum=$((num1 + num2))
+
+# Print the result
+echo "The sum of $num1 and $num2 is: $sum"
+---------------------------
+
+Write a script that checks if a file exists and prints a message based on the result.
+
+#!/bin/bash
+
+# Prompt user for a filename
+echo "Enter the filename:"
+read filename
+
+# Check if file exists
+if [ -e "$filename" ]; then  #-e is for all, -f will fail for directory but only pass for file
+    echo "The file '$filename' exists."
+else
+    echo "The file '$filename' does not exist."
+fi
+
+---------------------------------
+
+Create a script that prints numbers from 1 to 10 using a loop.
+
+#!/bin/bash
+
+# Using a for loop
+for i in {1..10}; do
+    echo "$i"
+done
+-------------------------
+
+Create a script that takes user input and performs an action based on the input.
+
+#!/bin/bash
+
+# Prompt user for input
+echo "Choose an action:"
+echo "1. Show date"
+echo "2. List files in current directory"
+echo "3. Show system uptime"
+echo "4. Exit"
+
+# Read user input
+read -p "Enter your choice (1-4): " choice
+
+# Perform action based on input
+case $choice in
+    1)
+        echo "Current date and time: $(date)"
+        ;;
+    2)
+        echo "Files in current directory:"
+        ls
+        ;;
+    3)
+        echo "System uptime:"
+        uptime
+        ;;
+    4)
+        echo "Exiting..."
+        exit 0
+        ;;
+    *)
+        echo "Invalid choice. Please enter a number between 1 and 4."
+        ;;
+esac
+-------------------------------------------
+
+Write a script that analyzes a log file and extracts lines containing a specific keyword.
+
+#!/bin/bash
+
+# Prompt user for log file and keyword
+echo "Enter the log file path:"
+read logfile
+
+echo "Enter the keyword to search for:"
+read keyword
+
+# Check if the file exists
+if [ ! -f "$logfile" ]; then
+    echo "Error: File '$logfile' not found!"
+    exit 1
+fi
+
+# Extract and display matching lines
+echo "Lines containing '$keyword' in '$logfile':"
+grep "$keyword" "$logfile"
+--------------------------------------------------
+
+Create a script that searches for files with a specific extension and size greater than a specified value.
+
+#!/bin/bash
+
+# Prompt user for directory, file extension, and size
+echo "Enter the directory to search in:"
+read directory
+
+echo "Enter the file extension (e.g., txt, log, jpg):"
+read extension
+
+echo "Enter the minimum file size (in KB):"
+read min_size
+
+# Convert size to KB for find command
+min_size_kb="${min_size}k"
+
+# Check if the directory exists
+if [ ! -d "$directory" ]; then
+    echo "Error: Directory '$directory' not found!"
+    exit 1
+fi
+
+# Search for files matching the criteria
+echo "Searching for *.$extension files larger than $min_size KB in '$directory'..."
+find "$directory" -type f -name "*.$extension" -size +"$min_size_kb"
+
+-------------------------------------
+
+Create a script that counts the number of times a specific string appears in a file
+
+#!/bin/bash
+
+# Prompt user for filename and search string
+echo "Enter the file name:"
+read filename
+
+echo "Enter the string to search for:"
+read search_string
+
+# Check if the file exists
+if [ ! -f "$filename" ]; then
+    echo "Error: File '$filename' not found!"
+    exit 1
+fi
+
+# Count occurrences of the string
+count=$(grep -o "$search_string" "$filename" | wc -l)
+
+# Display the result
+echo "The string '$search_string' appears $count times in '$filename'."
+
+------------------------------------
+
+Write a script that checks if a specific string exists in a file and prints a message based on the result.
+
+#!/bin/bash
+
+# Prompt user for filename and search string
+echo "Enter the file name:"
+read filename
+
+echo "Enter the string to search for:"
+read search_string
+
+# Check if the file exists
+if [ ! -f "$filename" ]; then
+    echo "Error: File '$filename' not found!"
+    exit 1
+fi
+
+# Check if the string exists in the file
+if grep -q "$search_string" "$filename"; then
+    echo "The string '$search_string' was found in '$filename'."
+else
+    echo "The string '$search_string' was NOT found in '$filename'."
+fi
+
+-----------------------------------
+
+Create a script that extracts a substring from a given string based on a specified position and length.
+#!/bin/bash
+
+# Prompt user for input string
+echo "Enter the string:"
+read input_string
+
+# Prompt user for starting position (1-based index)
+echo "Enter the starting position (1-based index):"
+read start_pos
+
+# Prompt user for substring length
+echo "Enter the length of the substring:"
+read length
+
+# Extract substring using parameter expansion
+substring=${input_string:$((start_pos-1)):$length}
+
+# Display the result
+echo "Extracted substring: '$substring'"
+
+----------------------------------
+Write a script that concatenates two strings and prints the result.
+#!/bin/bash
+
+# Prompt user for the first string
+echo "Enter the first string:"
+read string1
+
+# Prompt user for the second string
+echo "Enter the second string:"
+read string2
+
+# Concatenate the strings
+result="${string1}${string2}"
+
+# Display the concatenated result
+echo "Concatenated string: '$result'"
+-------------------------------------
+Create a script that reverses a given string.
+
+#!/bin/bash
+
+# Prompt user for input string
+echo "Enter a string:"
+read input_string
+
+# Reverse the string using `rev`
+reversed_string=$(echo "$input_string" | rev)
+
+# Display the reversed string
+echo "Reversed string: '$reversed_string'"
+--------------------------------------
+Write a script that converts a given string to uppercase.
+#!/bin/bash
+
+echo "Enter a string:"
+read input_string
+
+# Convert to uppercase using tr
+uppercase_string=$(echo "$input_string" | tr '[:lower:]' '[:upper:]')
+
+echo "Uppercase string: '$uppercase_string'"
+
+---------------------------------------
+Create a script that finds the length of a given string.
+#!/bin/bash
+
+# Prompt user for input string
+echo "Enter a string:"
+read input_string
+
+# Get string length using ${#variable}
+string_length=${#input_string}
+
+# Display the length
+echo "Length of the string: $string_length"
+
