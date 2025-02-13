@@ -1,0 +1,265 @@
+ubuntu@DESKTOP-DPSJ54R:~$ export VAR=devops
+ubuntu@DESKTOP-DPSJ54R:~$ python3
+Python 3.12.3 (main, Jan 17 2025, 18:03:48) [GCC 13.3.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import os,sys,time
+>>> os.environ["VAR"]
+'devops'
+>>>
+
+string1 = 'Hello'
+string2 = "Python"
+string3 = '''DevOps Automation'''
+
+first_name = "Dev"
+last_name = "Ops"
+full_name = first_name + last_name  # "DevOps"
+full_name_with_space = first_name + " " + last_name  # "Dev Ops"
+
+repeat_string = "DevOps " * 3  # "DevOps DevOps DevOps "
+
+message = "Python for DevOps"
+length = len(message)  # 18
+---------------------------------
+strip()
+
+Definition and Usage
+The strip() method removes any leading, and trailing whitespaces.
+Leading means at the beginning of the string, trailing means at the end.
+You can specify which character(s) to remove, if not, any whitespaces will be removed.
+
+>>> txt = ",,,,,rrttgg.....banana....rrr"
+>>> txt.strip(",.grt")
+'banana'
+-----------------------------------
+#index
+
+txt = "Hello, welcome to my world."
+x = txt.index("welcome")
+print(x)
+
+#First occurrence
+txt = "Hello, welcome to my world."
+
+#Between 5 and 10
+txt = "Hello, welcome to my world."
+x = txt.index("e", 5, 10)
+
+print(x)
+----------------------------------
+#replace
+
+txt = "I like bananas"
+x = txt.replace("bananas", "apples")
+print(x)
+
+#replace first 2 occurrences
+
+txt = "one one was a race horse, two two was one too."
+
+x = txt.replace("one", "three", 2)
+
+print(x)
+----------------------------------
+text = "DevOps"
+first_char = text[0]  # 'D'
+last_char = text[-1]  # 's'
+slice_part = text[0:3]  # 'Dev' (Substring from index 0 to 2)
+------------------------------------
+msg = "Hello DevOps"
+print(msg.upper())  # "HELLO DEVOPS"
+print(msg.lower())  # "hello devops"
+print(msg.title())  # "Hello Devops"
+------------------------------------
+sentence = "Python for DevOps"
+words = sentence.split()  # ['Python', 'for', 'DevOps']
+joined_text = "-".join(words)  # "Python-for-DevOps"
+-------------------------------------
+text = "Python is great for DevOps"
+print("DevOps" in text)  # True
+print("Cloud" not in text)  # True
+------------------------------------
+name = "DevOps"
+version = 3
+print(f"{name} version {version}")  # "DevOps version 3"
+----------------------------------------
+#Extracting filename from a log file path
+
+log_path = "/var/logs/nginx/access.log"
+filename = log_path.split("/")[-1]
+print(filename)  # "access.log"
+
+----------------------------------------
+#Checking if a service name exists in logs
+
+log_data = "Error: Nginx service failed to start"
+if "Nginx" in log_data:
+    print("Nginx issue detected!")  
+
+--------------------------------------
+#Extracting a Specific Key-Value from JSON (as a String)
+
+import json
+
+log_json = '{"timestamp": "2025-02-13T12:34:56", "status": "ERROR", "service": "nginx"}'
+log_data = json.loads(log_json)
+
+print(log_data["service"])  # Output: "nginx"
+
+---------------------------------------
+Extracting Domain Name from a URL
+
+url = "https://devops.example.com/tools/kubernetes"
+domain = url.split("//")[-1].split("/")[0]
+print(domain)  # Output: "devops.example.com"
+
+------------------------------------
+
+# Open a file in read mode ('r')
+with open("server.log", "r") as file:
+    content = file.read()  # Reads entire file content
+    print(content)
+
+For large files, read line by line
+with open("server.log", "r") as file:
+    for line in file:
+        print(line.strip())  # Remove extra newline characters
+
+Writing to a File (Creating or Overwriting)
+# Open a file in write mode ('w') - Overwrites existing content
+with open("deployment_status.txt", "w") as file:
+    file.write("Deployment Successful\n")
+    
+---------------------------
+#check if file present
+
+import os
+
+file_path = "config.yaml"
+
+if os.path.exists(file_path):
+    with open(file_path, "r") as file:
+        print(file.read())
+else:
+    print("File not found!")
+
+
+import os
+
+dir_name = "backup"
+
+if not os.path.exists(dir_name):
+    os.makedirs(dir_name)  # Create directory
+    print("Directory created")
+
+#Rename/move a file
+import os
+
+os.rename("old_config.yaml", "new_config.yaml")  # Rename a file
+os.replace("new_config.yaml", "/etc/config/new_config.yaml")  # Move a file
+
+#Set ENV var
+import os
+
+os.environ["DEPLOYMENT_ENV"] = "production"
+print("Deployment:", os.getenv("DEPLOYMENT_ENV"))
+
+---------------------------
+#subprocess
+
+#Running Shell Commands and Capturing Output
+import subprocess
+
+output = subprocess.run(["ls", "-l"], capture_output=True, text=True)
+print(output.stdout)
+-------------------------
+#1. Creating Lists
+servers = ["web01", "web02", "db01", "cache01"]
+print(servers)
+
+#Accessing Elements
+print(servers[0])   # First element → "web01"
+print(servers[-1])  # Last element → "cache01"
+
+#Modifying a List
+servers[1] = "web03"
+print(servers)  # ["web01", "web03", "db01", "cache01"]
+
+
+#Adding Elements to a List
+servers.append("app01")  # Add one item at the end
+print(servers)
+
+servers.extend(["app02", "app03"])  # Add multiple items
+print(servers)
+
+#Removing Elements from a List
+servers.remove("cache01")  # Remove by value
+print(servers)
+
+del servers[2]  # Remove by index
+print(servers)
+
+popped_server = servers.pop()  # Remove last item and return it
+print("Removed:", popped_server)
+
+#iterate
+for server in servers:
+    print("Deploying to:", server)
+
+#sort
+servers.sort()  # Alphabetical sorting
+print(servers)
+
+servers.sort(reverse=True)  # Reverse sorting
+print(servers)
+
+
+#reverse
+servers.reverse()
+print(servers)
+
+#slice
+print(servers[:2])  # First two servers
+print(servers[-2:]) # Last two servers
+
+
+#Counting Occurrences in a List
+log_levels = ["INFO", "ERROR", "DEBUG", "ERROR", "INFO"]
+print("ERROR count:", log_levels.count("ERROR"))
+
+
+#Filtering a List (Using List Comprehension)
+errors = [log for log in log_levels if log == "ERROR"]
+print(errors)
+
+---------------------------------
+#Dict
+server_config = {
+    "hostname": "dev-server",
+    "ip": "192.168.1.100",
+    "os": "Ubuntu 22.04",
+    "role": "web",
+    "status": "running"
+}
+
+print(server_config["hostname"])  # Output: dev-server
+
+
+#Update
+server_config["port"] = 8080  # Add a new key-value pair
+server_config["role"] = "database"  # Update an existing value
+
+print(server_config)
+
+#Iterate
+for key, value in server_config.items():
+    print(f"{key}: {value}")
+
+#Nested
+servers = {
+    "web": {"ip": "192.168.1.101", "os": "Ubuntu", "status": "running"},
+    "db": {"ip": "192.168.1.102", "os": "CentOS", "status": "stopped"},
+}
+
+print(servers["db"]["os"])  # Output: CentOS
