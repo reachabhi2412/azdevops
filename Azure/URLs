@@ -1,0 +1,40 @@
+Deploying a Linux Server Virtual Machine in Microsoft Azure
+
+Microsoft Azure
+https://azure.microsoft.com/en-us/
+
+Azure Documentation
+https://docs.microsoft.com/en-us/azure/
+
+Azure Architecture Center
+https://docs.microsoft.com/en-us/azure/architecture/
+
+Azure Subscription and Service Limits
+https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits
+
+Endorsed distributions of Linux | Microsoft Docs
+https://docs.microsoft.com/en-us/azure/virtual-machines/linux/endorsed-distros
+
+Use infrastructure automation tools for Windows VMs in Azure | Microsoft Docs
+https://docs.microsoft.com/en-us/azure/virtual-machines/windows/infrastructure-automation
+
+Azure Resource Manager Overview | Microsoft Docs
+https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview
+
+Azure Cloud Shell overview | Microsoft Docs
+https://docs.microsoft.com/en-us/azure/cloud-shell/overview
+
+Use Remote Desktop to a Linux VM in Azure | Microsoft Docs
+https://docs.microsoft.com/en-us/azure/virtual-machines/linux/use-remote-desktop
+
+Create and use an SSH key pair for Linux VMs in Azure | Microsoft Docs
+https://docs.microsoft.com/en-us/azure/virtual-machines/linux/mac-create-ssh-keys
+
+Use SSH keys with Windows for Linux VMs | Microsoft Docs
+https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ssh-from-windows
+
+Azure Virtual Machine Serial Console | Microsoft Docs
+https://docs.microsoft.com/en-us/azure/virtual-machines/linux/serial-console
+
+Boot diagnostics for Linux virtual machines in Azure | Microsoft Docs
+https://docs.microsoft.com/en-us/azure/virtual-machines/linux/boot-diagnostics
