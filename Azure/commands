@@ -4,4 +4,4 @@ curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 az account show
 az account list
 az account set --subscription <SUB_ID>
-
+az vm create -n MyVm -g MyResourceGroup --image Ubuntu2204 --admin-username <uname> --admin-password <pwd>
