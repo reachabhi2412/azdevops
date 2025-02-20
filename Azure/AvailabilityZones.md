@@ -16,4 +16,6 @@ Availability Zones are suitable for mission-critical applications that need to b
 ## Fault Tolerance:
 Since Availability Zones are in separate locations within a region, they offer more robust fault tolerance than Availability Sets. If one zone is down, the other zones will continue functioning, ensuring the availability of the service.
 
+_Note: Not all regions have Availability Zones_
+
 ![image](https://github.com/user-attachments/assets/32f0f076-65ea-486e-9c17-6f0c8472e28b)
