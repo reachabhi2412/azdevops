@@ -1,0 +1,91 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36" version="26.1.0">
+  <diagram name="Page-1" id="xJ_MLzCnlAWt7OEXagvp">
+    <mxGraphModel dx="1978" dy="412" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="1cGsUSnbrSgn3wHG3W-F-22" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="1cGsUSnbrSgn3wHG3W-F-25" target="1cGsUSnbrSgn3wHG3W-F-21">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="1cGsUSnbrSgn3wHG3W-F-23" value="Text" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="1cGsUSnbrSgn3wHG3W-F-22">
+          <mxGeometry x="0.3037" y="2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1cGsUSnbrSgn3wHG3W-F-17" value="GitHub" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="435" y="10" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="1cGsUSnbrSgn3wHG3W-F-19" value="Actor" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="687" y="20" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="1cGsUSnbrSgn3wHG3W-F-20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.875;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="1cGsUSnbrSgn3wHG3W-F-19" target="1cGsUSnbrSgn3wHG3W-F-17">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="1cGsUSnbrSgn3wHG3W-F-27" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="1cGsUSnbrSgn3wHG3W-F-21" target="1cGsUSnbrSgn3wHG3W-F-26">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="1cGsUSnbrSgn3wHG3W-F-21" value="Docker Image" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="435" y="180" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="1cGsUSnbrSgn3wHG3W-F-26" value="ACR" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="635" y="170" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="1cGsUSnbrSgn3wHG3W-F-28" value="Push" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="588" y="18" width="50" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="1cGsUSnbrSgn3wHG3W-F-29" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="1cGsUSnbrSgn3wHG3W-F-17" target="1cGsUSnbrSgn3wHG3W-F-25">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="495" y="90" as="sourcePoint" />
+            <mxPoint x="495" y="180" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1cGsUSnbrSgn3wHG3W-F-25" value="Dockerfile" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;" vertex="1" parent="1">
+          <mxGeometry x="470" y="97" width="60" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="1cGsUSnbrSgn3wHG3W-F-31" value="SecOps ????" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="560" y="58" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="1cGsUSnbrSgn3wHG3W-F-33" value="Developer" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="717" y="45" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="1cGsUSnbrSgn3wHG3W-F-35" value="&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;&lt;u&gt;SecOps Best Practices&lt;/u&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;1. Pull Request&lt;div&gt;2. Tests (Integration, Smoke, Sanity..)&lt;/div&gt;&lt;div&gt;3. &lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Code Vulnerability&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;ul&gt;&lt;li&gt;Security Tools&lt;/li&gt;&lt;li&gt;Blackduck, Sonar, Whitesource (Java, Python, Angular, Node)&lt;/li&gt;&lt;li&gt;Reviews&lt;/li&gt;&lt;li&gt;Docker base image - Ubuntu, Alpine, Python....&lt;/li&gt;&lt;li&gt;Docker Image = Code(Business Logic) + Base Image + 3rd party Lib&lt;/li&gt;&lt;li&gt;Trivy scan&lt;/li&gt;&lt;/ul&gt;&lt;div&gt;4.&amp;nbsp; Qualys Web Headers SSL scan, Penetration (OWASP)&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="-20" y="20" width="430" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="1cGsUSnbrSgn3wHG3W-F-36" value="" style="edgeStyle=none;orthogonalLoop=1;jettySize=auto;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="100" relative="1" as="geometry">
+            <mxPoint x="550" y="310" as="sourcePoint" />
+            <mxPoint x="780" y="310" as="targetPoint" />
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1cGsUSnbrSgn3wHG3W-F-37" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="550" y="365" as="sourcePoint" />
+            <mxPoint x="630" y="365" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1cGsUSnbrSgn3wHG3W-F-38" value="Master" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="620" y="288" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="1cGsUSnbrSgn3wHG3W-F-39" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="631" y="363" as="sourcePoint" />
+            <mxPoint x="681" y="313" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1cGsUSnbrSgn3wHG3W-F-40" value="Merge To Master" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="654" y="328" width="110" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="1cGsUSnbrSgn3wHG3W-F-41" value="Branch" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="550" y="360" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="1cGsUSnbrSgn3wHG3W-F-42" value="&lt;div style=&quot;text-align: left;&quot;&gt;&lt;b style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;u&gt;Cloud Architecture Challenges&lt;/u&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;ul&gt;&lt;li style=&quot;text-align: left;&quot;&gt;Dev / QA / Staging / Prod&lt;/li&gt;&lt;li style=&quot;text-align: left;&quot;&gt;Do we need ACR per environment ? - More Cost&lt;/li&gt;&lt;li style=&quot;text-align: left;&quot;&gt;A solution to address cleaner usage of Docker Images&lt;/li&gt;&lt;li style=&quot;text-align: left;&quot;&gt;Storage / AKS - DO we need them per env ?&lt;/li&gt;&lt;li style=&quot;text-align: left;&quot;&gt;Expose your code on each env ?&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="-20" y="270" width="350" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="1cGsUSnbrSgn3wHG3W-F-43" value="&lt;div&gt;&lt;b&gt;&lt;u&gt;Prerequisites - Azure DevOps&lt;/u&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;1. Prepare Infra&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&amp;nbsp; &amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&amp;nbsp; &amp;nbsp;&lt;/span&gt;&lt;div&gt;&lt;ul&gt;&lt;li&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Tools - Terraform , Shell Scripting&amp;nbsp;&lt;/span&gt;&lt;/li&gt;&lt;li&gt;Azure Cloud Service Principal&amp;nbsp;&lt;/li&gt;&lt;li&gt;RBAC&lt;/li&gt;&lt;li&gt;Terraform Installed&lt;/li&gt;&lt;/ul&gt;&lt;div&gt;2. Have Docker Image Ready&lt;/div&gt;&lt;div&gt;&lt;ul&gt;&lt;li&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Travel through the entire Build + SecOps Journey&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Security Tools (License/OpenSource)&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Tools - Docker / Shell Scripting / Python Scripting&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;&lt;div&gt;3. Push the Docker Image to ACR&lt;/div&gt;&lt;div&gt;&lt;ul&gt;&lt;li&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Tools - Docker / Shell Scripting / Python Scripting&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;&lt;div&gt;4. Run a set of Tests (Integration + Security)&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;ul&gt;&lt;li&gt;Security Tools&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="-10" y="385" width="330" height="330" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
