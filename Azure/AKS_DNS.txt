@@ -1,3 +1,5 @@
+---HTTP---
+
 1. Apply PodService.yaml on your cluster https://github.com/reachabhi2412/azdevops/blob/main/Azure/PodService.yaml
 
 2. This will create expose the service over Public IP Address. Check Services on tportal and look for the service and its Public IP
@@ -12,3 +14,8 @@ az network public-ip update --resource-group MC_myTFResourceGroup_myAKS_centrali
 eg: myapp.centralindia.cloudapp.azure.com
 
 7. Now access this DNS over http://myapp.centralindia.cloudapp.azure.com and you should be able to see the same nginx page
+
+8. Now delete the Service from AKS 
+
+-----HTTPS----
+9. Refer https://cert-manager.io/docs/tutorials/getting-started-aks-letsencrypt/
