@@ -1,0 +1,14 @@
+1. Apply PodService.yaml on your cluster https://github.com/reachabhi2412/azdevops/blob/main/Azure/PodService.yaml
+
+2. This will create expose the service over Public IP Address. Check Services on tportal and look for the service and its Public IP
+
+3. Access the IP over http. You would seee an nginx page
+
+4. On Azure Portal , go to Public IP Address from Global search and find the above IP address as well as its resource Group
+
+5. Update the IP address with a domain name using below command. Below is an example
+az network public-ip update --resource-group MC_myTFResourceGroup_myAKS_centralindia --name kubernetes-a9e62b1504a274eb389bf250dcee5a54 --dns-name myapp 
+6. You can check the IP address resource on Azure Portal and check the DNS updated on the Overview page as -  myapp.<REGION>.cloudapp.azure.com 
+eg: myapp.centralindia.cloudapp.azure.com
+
+7. Now access this DNS over http://myapp.centralindia.cloudapp.azure.com and you should be able to see the same nginx page
