@@ -20,6 +20,7 @@ metadata:
 spec:
   selector:
     app.kubernetes.io/name: proxy
+  type: LoadBalancer
   ports:
   - name: name-of-service-port
     protocol: TCP
