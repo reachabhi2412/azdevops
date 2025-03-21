@@ -1,0 +1,94 @@
+trigger:
+  - main  # Runs when changes are pushed to the main branch
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  terraformVersion: '1.11.2'
+  backendStorageRG: 'tf-rg'
+  backendStorageAccount: 'tfstoragevp'
+  backendContainer: 'tfstate'
+  backendKey: 'terraform.tfstate'
+
+stages:
+- stage: Setup_Storage
+  displayName: 'Setup Terraform Storage Backend'
+  jobs:
+  - job: CreateStorage
+    displayName: 'Create Storage Account & Container'
+    steps:
+    - task: AzureCLI@2
+      displayName: 'Create Storage Account if not exists'
+      inputs:
+        azureSubscription: 'demo'
+        scriptType: 'bash'
+        scriptLocation: 'inlineScript'
+        inlineScript: |
+          set -e
+          
+          # Check if storage account exists
+          ACCOUNT_EXISTS=$(az storage account show --name $(backendStorageAccount) --resource-group $(backendStorageRG) --query "id" --output tsv || echo "notfound")
+
+          if [ "$ACCOUNT_EXISTS" == "notfound" ]; then
+            echo "Creating storage account..."
+            az group create --name $(backendStorageRG) --location centralindia
+            az storage account create --name $(backendStorageAccount) --resource-group $(backendStorageRG) --location centralindia --sku Standard_LRS
+          else
+            echo "Storage account already exists."
+          fi
+          
+          ACCOUNT_KEY=$(az storage account keys list --resource-group $(backendStorageRG) --account-name $(backendStorageAccount) --query '[0].value' --output tsv)
+
+          # Check if storage container exists
+          CONTAINER_EXISTS=$(az storage container show --name $(backendContainer) --account-name $(backendStorageAccount) --account-key $ACCOUNT_KEY --query "name" --output tsv || echo "notfound")
+
+          if [ "$CONTAINER_EXISTS" == "notfound" ]; then
+            echo "Creating storage container..."
+            az storage container create --name $(backendContainer) --account-name $(backendStorageAccount) --account-key $ACCOUNT_KEY
+          else
+            echo "Storage container already exists."
+          fi
+
+- stage: Terraform_Init_Plan_Apply
+  displayName: 'Terraform Init, Plan & Apply'
+  jobs:
+  - job: InitPlanApply
+    displayName: 'Run Terraform '
+    steps:
+    - checkout: self
+
+    # Initialize Terraform
+    - task: AzureCLI@2
+      displayName: 'Terraform Init Plan & Apply'
+      inputs:
+        azureSubscription: 'demo'
+        scriptType: 'bash'
+        workingDirectory: '$(Build.SourcesDirectory)/infra'
+        scriptLocation: 'inlineScript'
+        addSpnToEnvironment: true
+        inlineScript: |
+          ls -la
+
+          export ARM_CLIENT_ID=$servicePrincipalId
+          export ARM_CLIENT_SECRET=$servicePrincipalKey
+          export ARM_SUBSCRIPTION_ID="3329f507-c277-4f62-ae69-f613cdee31df"
+          export ARM_TENANT_ID=$tenantId
+
+          sudo apt-get update && sudo apt-get install -y unzip
+          wget "https://releases.hashicorp.com/terraform/$(terraformVersion)/terraform_$(terraformVersion)_linux_amd64.zip" -q
+          unzip -q "terraform_$(terraformVersion)_linux_amd64.zip"
+          sudo mv terraform /usr/local/bin/
+          terraform --version
+
+          terraform init \
+            -backend-config="resource_group_name=$(backendStorageRG)" \
+            -backend-config="storage_account_name=$(backendStorageAccount)" \
+            -backend-config="container_name=$(backendContainer)" \
+            -backend-config="key=$(backendKey)" \
+            -reconfigure
+
+          chmod -R +x .terraform/providers/
+          terraform validate
+          terraform plan -out=tfplan
+          terraform apply -auto-approve tfplan
