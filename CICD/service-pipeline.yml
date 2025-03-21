@@ -1,0 +1,45 @@
+trigger:
+- main  # Replace with your branch name
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  imageName: 'nodejs-app'
+  registry: 'myakscontainerregistry.azurecr.io'
+  aksClusterName: 'my-aks-cluster'
+  resourceGroup: 'my-aks-rg'
+
+jobs:
+- job: BuildAndPush
+  displayName: 'Build and push Docker image'
+  steps:
+  - checkout: self
+  - task: AzureCLI@2
+    inputs:
+      azureSubscription: 'demo'
+      workingDirectory: '$(Build.SourcesDirectory)/NodeApp'
+      scriptType: 'bash'
+      scriptLocation: 'inlineScript'
+      inlineScript: |
+        az acr login --name $(registry)
+        docker build -t $(registry)/$(imageName):latest .
+        docker push $(registry)/$(imageName):latest
+
+
+- job: DeployToAKS
+  displayName: 'Deploy to AKS'
+  dependsOn: BuildAndPush
+  condition: succeeded()
+  steps:
+  - task: AzureCLI@2
+    inputs:
+      azureSubscription: 'demo'
+      scriptType: 'bash'
+      workingDirectory: '$(Build.SourcesDirectory)/NodeApp'
+      scriptLocation: 'inlineScript'
+      inlineScript: |
+        az account show
+        az aks get-credentials --resource-group $(resourceGroup) --name $(aksClusterName)
+        kubectl apply -f devops/
+        kubectl rollout status deployment/nodejs-app
