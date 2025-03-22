@@ -1,20 +1,31 @@
-# Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+Create Service Connection via Azure DevOps
 
-# Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
+1. Create Service Principal on Azure
+az ad sp create-for-rbac --name "my-sp" --role Contributor --scopes /subscriptions/<subscription-id>
 
-# Build and Test
-TODO: Describe and show how to build your code and run the tests. 
+This outputs:
 
-# Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
+{
+  "appId": "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "password": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "tenant": "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+}
 
-If you want to learn more about creating good readme files then refer the following [guidelines](https://docs.microsoft.com/en-us/azure/devops/repos/git/create-a-readme?view=azure-devops). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+2. Assign Required Role to Azure subscription
+
+az role assignment create --assignee <appId> --role "Contributor" --scope /subscriptions/<subscription-id>
+
+3. Configure in Azure DevOps
+
+Configure in Azure Devops
+
+- [ ] Go to Azure DevOps → Service connections.
+- [ ] Click New service connection → Azure Resource Manager
+- [ ] Choose Service Principal (manual)
+- [ ] Enter below details
+Subscription ID
+Service Principal Client ID
+Service Principal Key (password)
+Tenant ID
+
+- [ ] Click Verify and save
