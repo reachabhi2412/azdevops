@@ -5,16 +5,14 @@ pool:
   vmImage: 'ubuntu-latest'
 
 variables:
-  imageName: 'nodejs-app'
-  registry: 'myakscontainerregistry.azurecr.io'
-  aksClusterName: 'my-aks-cluster'
-  resourceGroup: 'my-aks-rg'
+  - group: azdevops
 
 jobs:
 - job: BuildAndPush
   displayName: 'Build and push Docker image'
   steps:
   - checkout: self
+
   - task: AzureCLI@2
     inputs:
       azureSubscription: 'demo'
@@ -24,7 +22,19 @@ jobs:
       inlineScript: |
         az acr login --name $(registry)
         docker build -t $(registry)/$(imageName):latest .
+        
+        sudo apt-get update && sudo apt-get install -y wget
+        wget https://github.com/aquasecurity/trivy/releases/download/v0.35.0/trivy_0.35.0_Linux-64bit.deb
+        sudo dpkg -i trivy_0.35.0_Linux-64bit.deb
+        trivy image --exit-code 1 --no-progress $(registry)/$(imageName):latest
+
         docker push $(registry)/$(imageName):latest
+
+  - task: PublishBuildArtifacts@1
+    inputs:
+      pathToPublish: '$(Build.SourcesDirectory)/trivy-report.json'
+      artifactName: 'trivy-report'
+    displayName: 'Publish Trivy Scan Report'
 
 
 - job: DeployToAKS
